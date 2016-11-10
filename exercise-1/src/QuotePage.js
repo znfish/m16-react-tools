@@ -25,7 +25,15 @@ var QuotePage = React.createClass({
 		return (
 			<div className="quotePage">
 				<div>
-					<p className="instructions">Iterate through <code>this.state.quotes</code>, and create a new <code>Quote</code> component for each one</p>
+					{
+						this.state.quotes.map(function(q, i){
+							return (
+								<Quote key={'key-' + i} text={q.text} url={q.url} author={q.author}/>
+							);
+						
+						})
+
+					}
 				</div>
 			</div>
 		);
